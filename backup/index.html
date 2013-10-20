@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<title>HTML5 Specifications</title>
+</head>
+
+<body>
+
+	<div id="container">
+		<h1>HTML5 Specifications</h1>
+		<div id="form-clicktime">
+			<label for="feature-name" class="collapse">+ View Specifications by Feature Type</label>
+		    <select name="feature-type" id="feature_list" class="content">
+		        <option value="0">Select a Feature Type</option>
+		    </select> 
+		    <br>
+		    <br>
+		    <label for="browser" class="collapse">+ View Specifications by Browser</label>
+		    <select name="browser-name" id="browser_list" class="content">
+		        <option value="0">Select a Browser</option>
+		    </select> 
+			<br>
+			<br>
+			<input type="button" id="form-clicktime-submit" value="Submit" />
+		</div>
+		<div id="trails-title">
+			<h2>spec name</h2>	
+			<h2 id="trails-title-1">w3c url</h2>	
+			<h2 id="trails-title-2">description</h2>	
+		</div>
+		<div id="trails">
+		</div>
+	</div>
+</body>
+</html>
