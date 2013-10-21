@@ -1,4 +1,12 @@
 
+$(".collapseabs").live("click", function(){
+    console.log($(this).attr('id'));
+    var specid = $(this).attr('id');
+    var specno= specid.substring(10);
+    console.log(specno);
+    $("#abstract" + specno).slideToggle(255);
+});
+
 function getInitialDetails() {
     //alert(document.URL);
     var url = document.URL + 'initialcall';
@@ -50,29 +58,50 @@ function queryXML() {
         data: JSON.stringify(obj),
         success: function(data){
                     console.log(data);
-                    var div = document.getElementById('trails-title');
+                    var div = document.getElementById('specs-title');
                     div.style.visibility = 'visible';
                     var specdetails = data.specdetails;
                     var sd;
-                    var taskTitle = '<div class="trail"><h2></h2><div class="trail-steps" id="trail0">';
                     
-                    var stepString = '', z, stepHTML, stepHTML1;
-                    for (z = 1; z <= 3; z++) {
-                        stepString = stepString + '<ul class="step step-' + z + '"></ul>';
-                    }
-                    $('#trails').append(taskTitle + stepString);
+                    var specName, specLink, specDesc;
+
+                    /*$('#specifications').append('<ul class="spec-name"></ul>');
+                    $('#specifications').append('<ul class="spec-link"></ul>');
+                    $('#specifications').append('<ul class="spec-desc"></ul>');
 
                     for (sd in data){
-                        stepHTML = '<li><a>' + data[sd].Name + '</a></li>';
-                        $('#trail0 .step-1').append(stepHTML);
+                        specName = '<li><a>' + data[sd].Name + '</a></li>';
+                        $('#specifications .spec-name').append(specName);
 
-                        tepHTML = '<li><a href="' + data[sd].W3CLink + '">' + data[sd].W3CLink + '</a></li>';
-                        $('#trail0 .step-2').append(tepHTML);
+                        specLink = '<li><a href="' + data[sd].W3CLink + '">' + data[sd].W3CLink + '</a></li>';
+                        $('#specifications .spec-link').append(specLink);
 
-                        stepHTML1 = '<li><a>' + data[sd].Description + '</a></li>';
-                        $('#trail0 .step-3').append(stepHTML1);
+                        specDesc = '<li><a>' + data[sd].Description + '</a></li>';
+                        $('#specifications .spec-desc').append(specDesc);
+                    }*/
+
+
+                    var i = 0;
+                    for (sd in data){
+                        $('#specifications').append('<ul class="spec-' + i + '"></ul>');
+                        specName = '<li class="spec-name collapseabs" id="spec-name-' + i + '"><a \>' + data[sd].Name + '</a></li>';
+                        $('#specifications .spec-' + i).append(specName);
+
+                        specLink = '<li class="spec-link"><a href="' + data[sd].W3CLink + '">' + data[sd].W3CLink + '</a></li>';
+                        $('#specifications .spec-' + i).append(specLink);
+
+                        specDesc = '<li class="spec-desc"><a>' + data[sd].Description + '</a></li>';
+                        $('#specifications .spec-' + i).append(specDesc);
+
+                        $('#specifications').append('<div class="abstract" id="abstract-' + i + '"></div>');
+                        $('#specifications #abstract-' + i).append(data[sd].Description);
+
+                        /*var div = document.getElementById('abstract-' + i);
+                        div.style.visibility = 'hidden';*/
+                        $(".abstract").hide();
+
+                        i = i + 1;
                     }
-                    $('#trails').append('</div>');
             }
     });
 }
@@ -85,7 +114,7 @@ $(document).ready(function() {
         $(this).next(".content").slideToggle(255);
     });
 
-    var div = document.getElementById('trails-title');
+    var div = document.getElementById('specs-title');
     div.style.visibility = 'hidden';
 
     getInitialDetails();
@@ -94,11 +123,11 @@ $(document).ready(function() {
     //var returnedList = f();
     //var clientIDsReturned = returnedList[0], jobIDsReturned = returnedList[1], taskIDsReturned = returnedList[2];
 
-    $("#form-clicktime-submit").on("click", function() {
+    $("#search-specifications-submit").on("click", function() {
 
         queryXML();
 
-        $("#trails").html("");
+        $("#specifications").html("");
         $(".trail").remove();
         $(".step").remove();
         return false;
