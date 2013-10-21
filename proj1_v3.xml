@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Features xmlns:ns="http://www.example.com"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.example.com proj1.xsd">
+    <Feature>
+        <Title>File Access</Title>
+        <Spec id="fileapi" status="WD">
+            <Name>File API</Name>
+            <Description>Method of manipulating file objects in web applications client-side, as well as programmatically selecting them and accessing their data.</Description>
+            <Abstract> This specification provides an API for representing file objects in web applications, as well as programmatically selecting them and accessing their data. This includes:
+                
+                A FileList interface, which represents an array of individually selected files from the underlying system. The user interface for selection can be invoked via &lt;input type=&quot;file&quot;&gt;, i.e. when the input element is in the File Upload state [HTML] .
+                    A Blob interface, which represents immutable raw binary data, and allows access to ranges of bytes within the Blob object as a separate Blob.
+                    A File interface, which includes readonly informational attributes about a file such as its name and the date of the last modification (on disk) of the file.
+                    A FileReader interface, which provides methods to read a File or a Blob, and an event model to obtain the results of these reads.
+                    A URL scheme for use with binary data such as files, so that they can be referenced within web applications.
+                    Additionally, this specification defines objects to be used within threaded web applications for the synchronous reading of files.
+                    
+                    The section on Requirements and Use Cases [REQ] covers the motivation behind this specification.
+                    
+                    This API is designed to be used in conjunction with other APIs and elements on the web platform, notably: XMLHttpRequest (e.g. with an overloaded send() method for File or Blob objects), postMessage, DataTransfer (part of the drag and drop API defined in [HTML,]) and Web Workers. Additionally, it should be possible to programmatically obtain a list of files from the input element when it is in the File Upload state[HTML]. These kinds of behaviors are defined in the appropriate affiliated specifications.</Abstract>
+            <W3CLink>http://www.w3.org/TR/FileAPI</W3CLink>
+            <Browsers>
+                <Browser>
+                    <Name>Chrome</Name>
+                    <Version>13</Version>
+                </Browser>
+                <Browser>
+                    <Name>Firefox</Name>
+                    <Version>4</Version>
+                </Browser>
+                <Browser>
+                    <Name>Safari</Name>
+                    <Version>6</Version>
+                </Browser>
+                <Browser>
+                    <Name>Opera</Name>
+                    <Version>12</Version>
+                </Browser>                
+                <Browser>
+                    <Name>IE</Name>
+                    <Version>10</Version>
+                </Browser>
+                <Browser>
+                    <Name>IOS Safari</Name>
+                    <Version>6.1</Version>
+                </Browser>
+                <Browser>
+                    <Name>Opera Mobile</Name>
+                    <Version>0</Version>
+                </Browser>
+            </Browsers>
+        </Spec>
+        
+        <Spec id="file-reader-api" status="WD">
+            <Name>File Reader API</Name>
+            <Description>Method of reading the contents of a File or Blob object into memory</Description>
+            <W3CLink>http://www.w3.org/TR/FileAPI/#dfn-filereader</W3CLink>
+            <Browsers>
+                <Browser>
+                    <Name>Chrome</Name>
+                    <Version>6</Version>
+                </Browser>
+                <Browser>
+                    <Name>Firefox</Name>
+                    <Version>4</Version>
+                </Browser>
+                <Browser>
+                    <Name>Safari</Name>
+                    <Version>6</Version>
+                </Browser>
+                <Browser>
+                    <Name>Opera</Name>
+                    <Version>12</Version>
+                </Browser>                
+                <Browser>
+                    <Name>IE</Name>
+                    <Version>10</Version>
+                </Browser>
+                <Browser>
+                    <Name>IOS Safari</Name>
+                    <Version>6.1</Version>
+                </Browser>
+                <Browser>
+                    <Name>Android</Name>
+                    <Version>3</Version>
+                </Browser>
+                <Browser>
+                    <Name>Opera Mobile</Name>
+                    <Version>0</Version>
+                </Browser>
+            </Browsers>
+        </Spec>
+        
+        <Spec id="file-system-api" status="WD">
+            <Name>Filesystem and FileWriter API</Name>
+            <Description>Method of reading and writing files to a sandboxed file system.</Description>
+            <Abstract>This specification defines an API to navigate file system hierarchies, and defines a means by which a user agent may expose sandboxed sections of a user's local filesystem to web applications. It builds on [FILE-WRITER-ED], which in turn built on [FILE-API-ED], each adding a different kind of functionality.</Abstract>
+            <W3CLink>http://www.w3.org/TR/file-system-api/</W3CLink>
+            <Browsers>
+                <Browser>
+                    <Name>Chrome</Name>
+                    <Version>13</Version>
+                </Browser>
+                
+                <Browser>
+                    <Name>Opera</Name>
+                    <Version>15</Version>
+                </Browser>                
+                
+                <Browser>
+                    <Name>Opera Mobile</Name>
+                    <Version>0</Version>
+                </Browser>
+            </Browsers>
+        </Spec>
+        
+        <Spec id="blob-constructing" status="WD">
+            <Name>Blob constructing</Name>
+            <Description>Construct Blobs (binary large objects) either using the BlobBuilder API (deprecated) or the Blob constructor.</Description>
+            <W3CLink>http://www.w3.org/TR/file-writer-api/#the-blobbuilder-interface</W3CLink>
+            <Browsers>
+                <Browser>
+                    <Name>Chrome</Name>
+                    <Version>20</Version>
+                </Browser>
+                <Browser>
+                    <Name>Firefox</Name>
+                    <Version>13</Version>
+                </Browser>
+                <Browser>
+                    <Name>Safari</Name>
+                    <Version>6</Version>
+                </Browser>
+                <Browser>
+                    <Name>Opera</Name>
+                    <Version>15</Version>
+                </Browser>                
+                <Browser>
+                    <Name>IE</Name>
+                    <Version>10</Version>
+                </Browser>
+                <Browser>
+                    <Name>IOS Safari</Name>
+                    <Version>6.1</Version>
+                </Browser>
+                
+                <Browser>
+                    <Name>Opera Mobile</Name>
+                    <Version>0</Version>
+                </Browser>
+            </Browsers>
+        </Spec>
+        
+        <Spec id="blob-urls" status="WD">
+            <Name>Blob URLs</Name>
+            <Description>Method of creating URL handles to the specified File or Blob object.</Description>
+            <W3CLink>http://www.w3.org/TR/FileAPI/#url</W3CLink>
+            <Browsers>
+                <Browser>
+                    <Name>Chrome</Name>
+                    <Version>8</Version>
+                </Browser>
+                <Browser>
+                    <Name>Firefox</Name>
+                    <Version>4</Version>
+                </Browser>
+                <Browser>
+                    <Name>Safari</Name>
+                    <Version>6</Version>
+                </Browser>
+                <Browser>
+                    <Name>Opera</Name>
+                    <Version>15</Version>
+                </Browser>                
+                <Browser>
+                    <Name>IE</Name>
+                    <Version>10</Version>
+                </Browser>
+                <Browser>
+                    <Name>IOS Safari</Name>
+                    <Version>6.1</Version>
+                </Browser>
+                <Browser>
+                    <Name>Android</Name>
+                    <Version>4</Version>
+                </Browser>
+                <Browser>
+                    <Name>Opera Mobile</Name>
+                    <Version>0</Version>
+                </Browser>
+            </Browsers>
+        </Spec>        
+    </Feature> 
+    
+    <Feature>
+        <Title>Presentation</Title>
+        <Spec id="css-3d-transforms" status="WD">
+            <Name>CSS 3D Transforms</Name>
+            <Description>Method of transforming an element in the third dimension</Description>
+            <Abstract>CSS transforms allows elements styled with CSS to be transformed in two-dimensional or three-dimensional space. This specification is the convergence of the CSS 2D transforms, CSS 3D transforms and SVG transforms specifications.</Abstract>
+            <W3CLink>http://www.w3.org/TR/css3-transforms/</W3CLink>
+            <Browsers>
+                <Browser>
+                    <Name>Chrome</Name>
+                    <Version>12</Version>
+                </Browser>
+                <Browser>
+                    <Name>Firefox</Name>
+                    <Version>10</Version>
+                </Browser>
+                <Browser>
+                    <Name>Safari</Name>
+                    <Version>4</Version>
+                </Browser>
+                <Browser>
+                    <Name>Opera</Name>
+                    <Version>15</Version>
+                </Browser>                
+                
+                <Browser>
+                    <Name>IOS Safari</Name>
+                    <Version>3.2</Version>
+                </Browser>
+                <Browser>
+                    <Name>Android</Name>
+                    <Version>3</Version>
+                </Browser>
+                <Browser>
+                    <Name>Opera Mobile</Name>
+                    <Version>0</Version>
+                </Browser>
+            </Browsers>
+        </Spec>
+        
+        <Spec id="css-transforms" status="WD">
+            <Name>CSS Transforms</Name>
+            <Description>Method of transforming an element including rotating, scaling, etc.</Description>
+            <Abstract>CSS transforms allows elements styled with CSS to be transformed in two-dimensional or three-dimensional space. This specification is the convergence of the CSS 2D transforms, CSS 3D transforms and SVG transforms specifications.</Abstract>
+            <W3CLink>http://www.w3.org/TR/css3-transforms/</W3CLink>
+            <Browsers>
+                <Browser>
+                    <Name>Chrome</Name>
+                    <Version>4</Version>
+                </Browser>
+                <Browser>
+                    <Name>Firefox</Name>
+                    <Version>4</Version>
+                </Browser>
+                <Browser>
+                    <Name>Safari</Name>
+                    <Version>4</Version>
+                </Browser>
+                <Browser>
+                    <Name>Opera</Name>
+                    <Version>11</Version>
+                </Browser>                
+                <Browser>
+                    <Name>IE</Name>
+                    <Version>9</Version>
+                </Browser> 
+                <Browser>
+                    <Name>IOS Safari</Name>
+                    <Version>3.2</Version>
+                </Browser>
+                <Browser>
+                    <Name>Android</Name>
+                    <Version>3</Version>
+                </Browser>
+                <Browser>
+                    <Name>Opera Mobile</Name>
+                    <Version>0</Version>
+                </Browser>
+            </Browsers>
+        </Spec>
+        
+        <Spec id="css-animations" status="WD">
+            <Name>CSS Animation</Name>
+            <Description>Complex method of animating certain properties of an element</Description>
+            <Abstract>This CSS module describes a way for authors to animate the values of CSS properties over time, using keyframes. The behavior of these keyframe animations can be controlled by specifying their duration, number of repeats, and repeating behavior.</Abstract>
+            <W3CLink>http://www.w3.org/TR/css3-animations/</W3CLink>
+            <Browsers>
+                <Browser>
+                    <Name>Chrome</Name>
+                    <Version>4</Version>
+                </Browser>
+                <Browser>
+                    <Name>Firefox</Name>
+                    <Version>5</Version>
+                </Browser>
+                <Browser>
+                    <Name>Safari</Name>
+                    <Version>4</Version>
+                </Browser>
+                <Browser>
+                    <Name>Opera</Name>
+                    <Version>12</Version>
+                </Browser>                
+                <Browser>
+                    <Name>IE</Name>
+                    <Version>10</Version>
+                </Browser> 
+                <Browser>
+                    <Name>IOS Safari</Name>
+                    <Version>3.2</Version>
+                </Browser>
+                <Browser>
+                    <Name>Android</Name>
+                    <Version>4</Version>
+                </Browser>
+                <Browser>
+                    <Name>Opera Mobile</Name>
+                    <Version>0</Version>
+                </Browser>
+            </Browsers>
+        </Spec>
+        
+        <Spec id="css-transitions" status="WD">
+            <Name>CSS Transitions</Name>
+            <Description>Simple method of animating certain properties of an element</Description>
+            <Abstract>CSS Transitions allows property changes in CSS values to occur smoothly over a specified duration.</Abstract>
+            <W3CLink>http://www.w3.org/TR/css3-transitions/</W3CLink>
+            <Browsers>
+                <Browser>
+                    <Name>Chrome</Name>
+                    <Version>4</Version>
+                </Browser>
+                <Browser>
+                    <Name>Firefox</Name>
+                    <Version>4</Version>
+                </Browser>
+                <Browser>
+                    <Name>Safari</Name>
+                    <Version>4</Version>
+                </Browser>
+                <Browser>
+                    <Name>Opera</Name>
+                    <Version>11</Version>
+                </Browser>                
+                <Browser>
+                    <Name>IE</Name>
+                    <Version>10</Version>
+                </Browser> 
+                <Browser>
+                    <Name>IOS Safari</Name>
+                    <Version>3.2</Version>
+                </Browser>
+                <Browser>
+                    <Name>Android</Name>
+                    <Version>3</Version>
+                </Browser>
+                <Browser>
+                    <Name>Opera Mobile</Name>
+                    <Version>0</Version>
+                </Browser>
+            </Browsers>
+        </Spec>
+        
+    </Feature>
+    <!--<Feature>
+        <Title>3D/Graphics</Title>
+    </Feature> 
+    <Feature>
+        <Title>Connectivity</Title>
+    </Feature>
+    <Feature>
+        <Title>Nuts and Bolts</Title>
+    </Feature>-->
+    <Feature>
+        <Title>Miltimedia</Title>
+        <Spec id="video-element" status="WD">
+            <Name>Video element</Name>
+            <Description>Method of playing videos on webpages (without requiring a plug-in)</Description>
+            <W3CLink>http://www.w3.org/TR/html5/embedded-content-0.html#the-video-element</W3CLink>
+            <Browsers>
+                <Browser>
+                    <Name>Chrome</Name>
+                    <Version>4</Version>
+                </Browser>
+                <Browser>
+                    <Name>Firefox</Name>
+                    <Version>4</Version>
+                </Browser>
+                <Browser>
+                    <Name>Safari</Name>
+                    <Version>4</Version>
+                </Browser>
+                <Browser>
+                    <Name>Opera</Name>
+                    <Version>11</Version>
+                </Browser>                
+                <Browser>
+                    <Name>IE</Name>
+                    <Version>9</Version>
+                </Browser> 
+                <Browser>
+                    <Name>IOS Safari</Name>
+                    <Version>3.2</Version>
+                </Browser>
+                <Browser>
+                    <Name>Android</Name>
+                    <Version>3</Version>
+                </Browser>
+                <Browser>
+                    <Name>Opera Mobile</Name>
+                    <Version>0</Version>
+                </Browser>
+            </Browsers>
+        </Spec>
+        <Spec id="audio-element" status="WD">
+            <Name>Audio element</Name>
+            <Description>Method of playing sound on webpages (without requiring a plug-in)</Description>
+            <W3CLink>http://www.w3.org/TR/html5/embedded-content-0.html#the-audio-element</W3CLink>
+            <Browsers>
+                <Browser>
+                    <Name>Chrome</Name>
+                    <Version>4</Version>
+                </Browser>
+                <Browser>
+                    <Name>Firefox</Name>
+                    <Version>4</Version>
+                </Browser>
+                <Browser>
+                    <Name>Safari</Name>
+                    <Version>4</Version>
+                </Browser>
+                <Browser>
+                    <Name>Opera</Name>
+                    <Version>11</Version>
+                </Browser>                
+                <Browser>
+                    <Name>IE</Name>
+                    <Version>9</Version>
+                </Browser> 
+                <Browser>
+                    <Name>IOS Safari</Name>
+                    <Version>4.1</Version>
+                </Browser>
+                <Browser>
+                    <Name>Android</Name>
+                    <Version>3</Version>
+                </Browser>
+                <Browser>
+                    <Name>Opera Mobile</Name>
+                    <Version>0</Version>
+                </Browser>
+            </Browsers>
+        </Spec>
+    </Feature>
+    <Feature>
+        <Title>Storage</Title>
+        <Spec id="web-storage" status="REC">
+            <Name>Web Storage - name/value pairs</Name>
+            <Description>Method of storing data locally like cookies, but for larger amounts of data (sessionStorage and localStorage, used to fall under HTML5).</Description>
+            <W3CLink>http://www.w3.org/TR/webstorage/#storage</W3CLink>
+            <Browsers>
+                <Browser>
+                    <Name>Chrome</Name>
+                    <Version>4</Version>
+                </Browser>
+                <Browser>
+                    <Name>Firefox</Name>
+                    <Version>4</Version>
+                </Browser>
+                <Browser>
+                    <Name>Safari</Name>
+                    <Version>4</Version>
+                </Browser>
+                <Browser>
+                    <Name>Opera</Name>
+                    <Version>11</Version>
+                </Browser>                
+                <Browser>
+                    <Name>IE</Name>
+                    <Version>8</Version>
+                </Browser> 
+                <Browser>
+                    <Name>IOS Safari</Name>
+                    <Version>3.2</Version>
+                </Browser>
+                <Browser>
+                    <Name>Android</Name>
+                    <Version>3</Version>
+                </Browser>
+                <Browser>
+                    <Name>Opera Mobile</Name>
+                    <Version>0</Version>
+                </Browser>
+            </Browsers>
+        </Spec>
+        <Spec id="indexdb" status="WD">
+            <Name>IndexedDB</Name>
+            <Description>Method of storing data client-side, allows indexed database queries. Previously known as WebSimpleDB API.</Description>
+            <Abstract>This document defines APIs for a database of records holding simple values and hierarchical objects. Each record consists of a key and some value. Moreover, the database maintains indexes over records it stores. An application developer directly uses an API to locate records either by their key or by using an index. A query language can be layered on this API. An indexed database can be implemented using a persistent B-tree data structure.</Abstract>
+            <W3CLink>http://www.w3.org/TR/IndexedDB/</W3CLink>
+            <Browsers>
+                <Browser>
+                    <Name>Chrome</Name>
+                    <Version>23</Version>
+                </Browser>
+                <Browser>
+                    <Name>Firefox</Name>
+                    <Version>10</Version>
+                </Browser>
+                
+                <Browser>
+                    <Name>Opera</Name>
+                    <Version>15</Version>
+                </Browser>                
+                <Browser>
+                    <Name>IE</Name>
+                    <Version>10</Version>
+                </Browser> 
+                
+                    <Name>Opera Mobile</Name>
+                    <Version>0</Version>
+            </Browsers>
+        </Spec>
+        <Spec id="web-sql-db" status="NOTE">
+            <Name>Web SQL Database</Name>
+            <Description>Method of storing data client-side, allows Sqlite database queries for access and manipulation</Description>
+            <Abstract>his specification defines an API for storing data in databases that can be queried using a variant of SQL.</Abstract>
+            <W3CLink>http://www.w3.org/TR/webdatabase/</W3CLink>
+            <Browsers>
+                <Browser>
+                    <Name>Chrome</Name>
+                    <Version>4</Version>
+                </Browser>
+                
+                <Browser>
+                    <Name>Safari</Name>
+                    <Version>4</Version>
+                </Browser>
+                <Browser>
+                    <Name>Opera</Name>
+                    <Version>11</Version>
+                </Browser>                
+                
+                <Browser>
+                    <Name>IOS Safari</Name>
+                    <Version>3.2</Version>
+                </Browser>
+                <Browser>
+                    <Name>Android</Name>
+                    <Version>3</Version>
+                </Browser>
+                <Browser>
+                    <Name>Opera Mobile</Name>
+                    <Version>0</Version>
+                </Browser>
+            </Browsers>
+        </Spec>
+    </Feature>
+    <!--<Feature>
+        <Title>Performance</Title>
+    </Feature>
+    <Feature>
+        <Title>Semantics</Title>
+    </Feature>-->
+    <Feature>
+        <Title>Offline</Title>
+        <Spec id="offline-web-app" status="WD">
+            <Name>Offline web applications</Name>
+            <Description>Method of defining web page files to be cached using a cache manifest file, allowing them to work offline on subsequent visits to the page</Description>
+            <Abstract>HTML 5 contains several features that address the challenge of building Web applications that work while offline. This document highlights these features (SQL, offline application caching APIs as well as online/offline events, status, and the localStorage API) from HTML 5 and provides brief tutorials on how these features might be used to create Web applications that work offline. [HTML5]</Abstract>
+            <W3CLink>http://www.w3.org/TR/offline-webapps/</W3CLink>
+            <Browsers>
+                <Browser>
+                    <Name>Chrome</Name>
+                    <Version>4</Version>
+                </Browser>
+                <Browser>
+                    <Name>Firefox</Name>
+                    <Version>4</Version>
+                </Browser>
+                <Browser>
+                    <Name>Safari</Name>
+                    <Version>4</Version>
+                </Browser>
+                <Browser>
+                    <Name>Opera</Name>
+                    <Version>11</Version>
+                </Browser>                
+                <Browser>
+                    <Name>IE</Name>
+                    <Version>10</Version>
+                </Browser> 
+                <Browser>
+                    <Name>IOS Safari</Name>
+                    <Version>3.2</Version>
+                </Browser>
+                <Browser>
+                    <Name>Android</Name>
+                    <Version>3</Version>
+                </Browser>
+                <Browser>
+                    <Name>Opera Mobile</Name>
+                    <Version>0</Version>
+                </Browser>
+            </Browsers>
+        </Spec>
+    </Feature>
+</Features>

@@ -11,7 +11,7 @@ from flask import jsonify
 app = flask.Flask(__name__)
 app.debug = True
 
-out = etree.parse("proj1.xml")
+out = etree.parse("proj1_v3.xml")
 feature_list = out.xpath("//Feature/Title/text()")
 browser_list = list(set(out.xpath("//Browser/Name/text()")))
 spec_list = out.xpath("//Spec/Name/text()")
@@ -62,6 +62,7 @@ def queryxml():
         spec_details = dict()
         spec_details['Name'] = ''
         spec_details['Description'] = ''
+        spec_details['Abstract'] = ''
         spec_details['W3CLink'] = ''
         spec_details['Browsers'] = []
         for c in sd.getchildren():

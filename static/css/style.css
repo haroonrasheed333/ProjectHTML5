@@ -100,7 +100,8 @@ margin-left: 80px;
 }
 
 #specifications ul:hover {
-	background: #ccc;
+	/*background: #ccc;*/
+	cursor: pointer;
 }
 
 #specifications li{
@@ -124,7 +125,7 @@ margin-left: 80px;
 	margin-bottom: 10px;
 	margin-top: 10px;
 	width: 1020px;
-	height: 100px;
+	height: 220px;
 }
 
 #specifications .spec-name a:hover, #specifications .spec-link a:hover{
