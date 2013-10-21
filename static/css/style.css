@@ -6,9 +6,10 @@ body{
 }
 
 h1{
-	font-size:25px;
+	font-size:33px;
 	font-weight:bold;
 	margin:0 0 30px 0;
+	text-align: center;
 }
 
 h2{
@@ -41,12 +42,12 @@ input[type=button]{
 
 /* container */
 #container{
-	background:#fff;
+	background:#eee;
 	border-bottom:10px solid #777;
 	font-size:.875em;
 	margin:0 auto 50px;
 	padding:50px 40px;
-	width:940px;
+	width:1020px;
 }
 
 .collapse, .collapseabs {
@@ -59,20 +60,28 @@ input[type=button]{
 #search-specifications{
 	overflow:hidden;
 	margin:0 0 30px 0;
+	width: 40%;
+	float: left;
+}
+
+#html5-logo {
+float: left;
+width: 50%;
+margin-left: 80px;
 }
 
 #specs-title{
 	border-top:5px solid #666;
 	overflow:hidden;
 	padding:10px 0 12px 0;
-	width:940px;
+	width:1020px;
 }
 
 #specs-title h2{
 	display:block;
 	float:left;
 	margin:0 20px 0 0;
-	width:275px;
+	width:225px;
 }
 
 #specifications{
@@ -86,19 +95,23 @@ input[type=button]{
 	list-style: none;
 	padding: 0;
 	display: block;
-	width: 940px;
-	height: 85px;
+	width: 1020px;
+	height: 100px;
 }
 
 #specifications li{
 	margin:0 20px 10px 0;
 	height: 80px;
   	float: left;
- 	width: 275px;
+ 	width: 225px;
 }
 
 #specifications{
 	font-size:1.3em;
+	.spec-brow-li{
+  	float: left;
+ 	width: auto;
+}
 }
 
 #specifications .abstract{
@@ -114,14 +127,10 @@ input[type=button]{
 	text-decoration:none;
 }
 
-.spec-link{
-	font-size: 13px;
+.spec-link, .spec-desc {
+	font-size: 14px;
 }
 
-.spec-desc{
+.spec-brow {
 	font-size: 13px;
-}
-
-.spec-name li, .spec-link li, .spec-desc li{
-	height: 80px;
 }

@@ -63,9 +63,17 @@ def queryxml():
         spec_details['Name'] = ''
         spec_details['Description'] = ''
         spec_details['W3CLink'] = ''
+        spec_details['Browsers'] = []
         for c in sd.getchildren():
             if c.tag != 'Browsers':
                 spec_details[c.tag] = c.text
+            elif c.tag == 'Browsers':
+                for b in c.getchildren():
+                    tempbrow = dict()
+                    for bb in b.getchildren():
+                        tempbrow[bb.tag] = ''
+                        tempbrow[bb.tag] = bb.text
+                    spec_details['Browsers'].append(tempbrow)
         outputsd[i] = {}
         outputsd[i] = spec_details
         i += 1

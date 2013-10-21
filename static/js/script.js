@@ -65,22 +65,6 @@ function queryXML() {
                     
                     var specName, specLink, specDesc;
 
-                    /*$('#specifications').append('<ul class="spec-name"></ul>');
-                    $('#specifications').append('<ul class="spec-link"></ul>');
-                    $('#specifications').append('<ul class="spec-desc"></ul>');
-
-                    for (sd in data){
-                        specName = '<li><a>' + data[sd].Name + '</a></li>';
-                        $('#specifications .spec-name').append(specName);
-
-                        specLink = '<li><a href="' + data[sd].W3CLink + '">' + data[sd].W3CLink + '</a></li>';
-                        $('#specifications .spec-link').append(specLink);
-
-                        specDesc = '<li><a>' + data[sd].Description + '</a></li>';
-                        $('#specifications .spec-desc').append(specDesc);
-                    }*/
-
-
                     var i = 0;
                     for (sd in data){
                         $('#specifications').append('<ul class="spec-' + i + '"></ul>');
@@ -92,6 +76,14 @@ function queryXML() {
 
                         specDesc = '<li class="spec-desc"><a>' + data[sd].Description + '</a></li>';
                         $('#specifications .spec-' + i).append(specDesc);
+
+                        var browsers = ''
+                        for (b in data[sd].Browsers){
+                            browsers = browsers + data[sd].Browsers[b].Name + data[sd].Browsers[b].Version + '+&emsp;' 
+                        }
+
+                        specBrow = '<li class="spec-brow">' + browsers + '</li>';
+                        $('#specifications .spec-' + i).append(specBrow);
 
                         $('#specifications').append('<div class="abstract" id="abstract-' + i + '"></div>');
                         $('#specifications #abstract-' + i).append(data[sd].Description);
@@ -118,10 +110,6 @@ $(document).ready(function() {
     div.style.visibility = 'hidden';
 
     getInitialDetails();
-
-   // var f = getTaskDetails();
-    //var returnedList = f();
-    //var clientIDsReturned = returnedList[0], jobIDsReturned = returnedList[1], taskIDsReturned = returnedList[2];
 
     $("#search-specifications-submit").on("click", function() {
 
