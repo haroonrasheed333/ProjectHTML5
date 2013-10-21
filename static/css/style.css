@@ -99,6 +99,10 @@ margin-left: 80px;
 	height: 100px;
 }
 
+#specifications ul:hover {
+	background: #ccc;
+}
+
 #specifications li{
 	margin:0 20px 10px 0;
 	height: 80px;
@@ -118,12 +122,12 @@ margin-left: 80px;
 	font-size: 13px;
 	float: left;
 	margin-bottom: 10px;
-	width: 940px;
+	margin-top: 10px;
+	width: 1020px;
+	height: 100px;
 }
 
 #specifications .spec-name a:hover, #specifications .spec-link a:hover{
-	background:#666;
-	color:#fff;
 	text-decoration:none;
 }
 

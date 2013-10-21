@@ -2,9 +2,9 @@
 $(".collapseabs").live("click", function(){
     console.log($(this).attr('id'));
     var specid = $(this).attr('id');
-    var specno= specid.substring(10);
+    var specno= specid.substring(5);
     console.log(specno);
-    $("#abstract" + specno).slideToggle(255);
+    $("#abstract-" + specno).slideToggle(255);
 });
 
 function getInitialDetails() {
@@ -67,15 +67,15 @@ function queryXML() {
 
                     var i = 0;
                     for (sd in data){
-                        $('#specifications').append('<ul class="spec-' + i + '"></ul>');
-                        specName = '<li class="spec-name collapseabs" id="spec-name-' + i + '"><a \>' + data[sd].Name + '</a></li>';
-                        $('#specifications .spec-' + i).append(specName);
+                        $('#specifications').append('<ul class="collapseabs" id="spec-' + i + '"></ul>');
+                        specName = '<li class="spec-name" id="spec-name-' + i + '"><a \>' + data[sd].Name + '</a></li>';
+                        $('#specifications #spec-' + i).append(specName);
 
                         specLink = '<li class="spec-link"><a href="' + data[sd].W3CLink + '">' + data[sd].W3CLink + '</a></li>';
-                        $('#specifications .spec-' + i).append(specLink);
+                        $('#specifications #spec-' + i).append(specLink);
 
                         specDesc = '<li class="spec-desc"><a>' + data[sd].Description + '</a></li>';
-                        $('#specifications .spec-' + i).append(specDesc);
+                        $('#specifications #spec-' + i).append(specDesc);
 
                         var browsers = ''
                         for (b in data[sd].Browsers){
@@ -83,13 +83,12 @@ function queryXML() {
                         }
 
                         specBrow = '<li class="spec-brow">' + browsers + '</li>';
-                        $('#specifications .spec-' + i).append(specBrow);
+                        $('#specifications #spec-' + i).append(specBrow);
 
                         $('#specifications').append('<div class="abstract" id="abstract-' + i + '"></div>');
-                        $('#specifications #abstract-' + i).append(data[sd].Description);
+                        $('#specifications #abstract-' + i).append('<h2 width="1020px">Abstract: </h2><br><br>');
+                        $('#specifications #abstract-' + i).append('<div>' + data[sd].Description + '</div>');
 
-                        /*var div = document.getElementById('abstract-' + i);
-                        div.style.visibility = 'hidden';*/
                         $(".abstract").hide();
 
                         i = i + 1;
