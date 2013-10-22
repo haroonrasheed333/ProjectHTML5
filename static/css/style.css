@@ -6,44 +6,44 @@ body{
 }
 
 h1{
-	font-size:33px;
-	font-weight:bold;
-	margin:0 0 30px 0;
+	font-size: 33px;
+	font-weight: bold;
+	margin: 0 0 30px 0;
 	text-align: center;
 }
 
 h2{
-	color:#333;
+	color: #333333;
 	font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
-	font-size:1.2em;
-	display:block;
-	float:left;
-	text-transform:uppercase;
-	letter-spacing:4px;
+	font-size: 1.2em;
+	display: block;
+	float: left;
+	text-transform: uppercase;
+	letter-spacing: 4px;
 }
 
 label{
-	color:#333;
+	color:#333333;
 	display:block;
 	font-weight:bold;
 	margin:0 0 5px 0;
 }
 
 input[type=button]{
-	background:#666;
 	border:0;
-	color:#fff;
 	font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
 	font-weight:bold;
 	height:24px;
 	padding:3px 10px;
 	text-transform:uppercase;
+	background-color:#5c5c5c;
+    display:inline-block;
+    color:#ffffff;
 }
 
-/* container */
 #container{
 	background:#eee;
-	border-bottom:10px solid #777;
+	border-bottom:5px solid #5c5c5c;
 	font-size:.875em;
 	margin:0 auto 50px;
 	padding:50px 40px;
@@ -71,7 +71,7 @@ margin-left: 80px;
 }
 
 #specs-title{
-	border-top:5px solid #666;
+	border-top:5px solid #5c5c5c;
 	overflow:hidden;
 	padding:10px 0 12px 0;
 	width:1020px;
@@ -91,7 +91,8 @@ margin-left: 80px;
 }
 
 #specifications ul{
-	margin:0 20px 0 0;
+	border-bottom: 1px dotted #ccc;
+	margin:30px 20px 0 0;
 	list-style: none;
 	padding: 0;
 	display: block;
@@ -121,11 +122,10 @@ margin-left: 80px;
 
 #specifications .abstract{
 	font-size: 13px;
-	float: left;
 	margin-bottom: 10px;
 	margin-top: 10px;
 	width: 1020px;
-	height: 220px;
+	text-align: justify;
 }
 
 #specifications .spec-name a:hover, #specifications .spec-link a:hover{

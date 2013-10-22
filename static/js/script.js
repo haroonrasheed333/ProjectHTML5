@@ -87,7 +87,7 @@ function queryXML() {
 
                         $('#specifications').append('<div class="abstract" id="abstract-' + i + '"></div>');
                         $('#specifications #abstract-' + i).append('<h2 width="1020px">Abstract: </h2><br><br>');
-                        $('#specifications #abstract-' + i).append('<div>' + data[sd].Abstract + '</div>');
+                        $('#specifications #abstract-' + i).append('<div><p>' + data[sd].Abstract + '</p></div>');
 
                         $(".abstract").hide();
 
